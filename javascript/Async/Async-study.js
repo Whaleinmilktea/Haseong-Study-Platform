@@ -3,6 +3,8 @@
 
 // Timer API ===> 직관적인 '시간'의 개념과 가장 유사하기에, 가장 먼저 접하는 개념
 
+// 1. call
+
 // 1. setTimeout(callback, millisecond) ===> milliseond 뒤에 실행
 setTimeout(function () {
   // 여기에는 콜백함수
