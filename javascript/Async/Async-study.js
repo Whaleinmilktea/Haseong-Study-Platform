@@ -50,7 +50,7 @@ asyncPrintTest(); // 왜 이 친구가 있어야지만 실행되는거지???... 
 const asyncPrint2 = function (string, callback) {
   setTimeout(() => {
     console.log(string);
-    callback(); // ===> 이 친구가 콜백함수를 호출!
+    callback(); 
   }, Math.floor(Math.random() * 100));
 };
 

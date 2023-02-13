@@ -5,9 +5,9 @@ const fs = require('fs'); // 파일 시스템 모듈 불러오기
 const dns = require('dns'); // DNS 모듈 불러오기
 
 // Node.js에서 서드파티 모듈을 불러오는 방법
-npm install underscore // underscore 모듈을 npm을 통해 web에서 불러오기
-===> // 이후에
-const_ = require('underscore'); // 서드파티 모듈 불러오기
+// npm install underscore // underscore 모듈을 npm을 통해 web에서 불러오기
+// ===> // 이후에
+// const_ = require('underscore'); // 서드파티 모듈 불러오기
 
 // fs.readFile
 fs.readFile(path, option, callback) // path, option, callback이라는 3개의 전달인자를 받음
