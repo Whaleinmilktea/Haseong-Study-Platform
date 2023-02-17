@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Modal Example</h2>
+
+  <!-- * Trigger the modal with a button -->
+  <!-- ! 부트스트랩으로 모달을 구현할 때 가장 중요한 부분은 data-toggle, data target 부분이다. -->
+  <!-- ? data-toggle은 bootstra에서 제공하고 있는 여러 기능들을 가져와 속성의 형태로 넣어놓는 것이고,
+  ? data-target은 코드의 어떤 부분을 평소에 보여주지 않고 trigger를 사용했을 때만 보여주는 modal로 사용할 것인지 정하는 id를 의미한다. -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <!-- ? ===> 여기서 id = mymodal 되어있는 부분이 이 div가 modal에 해당하는 영역을 코드에 알려주는 속성이다. -->
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

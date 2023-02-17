@@ -2,13 +2,13 @@
 ------
 ## 기술스택
 HTML
-CSS
-Javascript
-React
-Restful API
-HTTP(basic)
-Node.js(basic)
-Figma UX/UI
+<br/>CSS
+<br/>Javascript
+<br/>React
+<br/>Restful API
+<br/>HTTP(basic)
+<br/>Node.js(basic)
+<br/>Figma UX/UI
 
 ------
 ## 2023.02.14
