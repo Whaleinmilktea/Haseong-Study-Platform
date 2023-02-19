@@ -31,14 +31,13 @@ instance.newMethod(); // "value"
 
 ```javascript
 // Class ES7 리팩토링 구문
-const Foo = class {
+const NewClass2 = class {
   prop = "value"
   newMethod() {
-    return "Hello World!";
+    console.log(this.prop) // "value"
   }
 };
 
-let instance = new Foo();
-instance.bar(); // "Hello World!"
-Foo.name; // ""
+let instance = new NewClass2();
+instance.newMethod(); // "value"
 ```
