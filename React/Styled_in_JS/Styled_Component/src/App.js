@@ -15,7 +15,7 @@ color: black;
 export default function App () {
   return (
   <div>
-  <WelcomeHead>Hello, Welcome mt study flatform</WelcomeHead>
+  <WelcomeHead>Hello, Welcome my study flatform</WelcomeHead>
   <WelcomeExplain>I want to become a valuable developer.</WelcomeExplain>
   </div>
   )
