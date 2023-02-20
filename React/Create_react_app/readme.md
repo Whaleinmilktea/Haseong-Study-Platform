@@ -24,4 +24,3 @@ npm start
 > 3. src ===> 실제 편집에 사용되는 파일들의 집합
 > 4. package.json ===> 개발에 필요한 툴들을 정리 ===> npm install로 node_modules에 추가할 수 있다.
 > 5. README.md ===> 현재 버전의 React에 대한 설명
-
