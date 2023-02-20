@@ -63,12 +63,13 @@ const GlobalStyle = createGlobalStyle`
 	html엘리먼트 {
 		CSS 속성 : 속성값
 	}
+`
 
 function App () {
   return (
     <div>
       <GlobalStyle />
-      <html엘리먼트?></html엘리먼트>
+      <html엘리먼트></html엘리먼트>
     </div>
   )
 }
