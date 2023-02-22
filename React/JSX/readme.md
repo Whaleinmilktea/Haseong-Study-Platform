@@ -95,7 +95,6 @@ const Component = () => {
     </div>
   )
   }
-
 ```
 
 3. css class 속성을 지정하려면 className으로 지정해야 한다
