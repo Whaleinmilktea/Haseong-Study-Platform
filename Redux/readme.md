@@ -1,5 +1,3 @@
-[##_Image|kage@dURS8x/btr0zFaollV/E8MPvWvoiTzkk8XoQTh9IK/img.png|CDM|1.3|{"originWidth":1200,"originHeight":600,"style":"alignCenter","filename":"redux-logo-landscape.png"}_##]
-
 > " React는 Component를 기반으로 하는 상태관리 라이브러리다. "
 
 사용자가 애플리케이션에서 상호작용을 하게되면, React는 상위 컴포넌트가 갖고 있는 상태를 props(속성)의 형태로 하위 컴포넌트에 전달하게 된다.
