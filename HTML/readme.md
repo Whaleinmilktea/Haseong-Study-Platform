@@ -1,5 +1,3 @@
-[##_Image|kage@cGzxIt/btr1zlVUpLH/ZAeaKZYTvfCKFXSujfGnxK/img.png|CDM|1.3|{"originWidth":1920,"originHeight":1080,"style":"alignCenter","filename":"html logo.png"}_##]
-
 > **웹 표준이란,** W3C(World Wide Web Consortium)에서 권고하는 **"웹에서 표준적으로 사용되는 기술이나 규칙"**이다.
 
 이는 2000년대 초반, 웹이 급속도로 상용화되던 시기에 브라우저 간 상호호환이 되지 않아, 개발자들이 각 브라우저에 맞는 동일한 페이지를 구현했던 시기의 비생산적인 활동을 최소화하고 어느 브라우저에서나 동일한 상호작용을 제공하고자 웹 개발 형식을 통일한 데서 출발한다.
