@@ -4,25 +4,28 @@
   width: 5.5rem;
   height: 5.5rem;
   border: 1px solid #ececec;
-  background-color: #2a2a2a;
+  background-color: RGB(18, 42, 83);
   color: white;
   border-radius: 12px;
   align-items: center;
   justify-content: center;
 }
 
+.upper-date {
+  display: flex;
+}
+
 .expense-date__year {
   font-size: 0.75rem;
-  font-weight: bold;
 }
 
 .expense-date__month {
   font-size: 0.75rem;
-  margin-top: 3%;
+  font-weight: bold;
 }
 
 .expense-date__day {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
   margin-top: 5%;
 }
