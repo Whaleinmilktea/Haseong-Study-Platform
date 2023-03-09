@@ -18,7 +18,7 @@ console.log(lottoNum); // [18, 6, 1, 10, 28, 10]
 // 겹치지 않는 6자리 수 생성 완료
 
 lottoNum.sort((a,b) => a-b); // 모든 로또번호는 오름차순으로 정렬되기에 sort()로 정렬!
-console.log(lottoNum); //
+console.log(lottoNum); //.
 
 function App() {
 
