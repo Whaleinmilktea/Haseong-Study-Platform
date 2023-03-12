@@ -21,8 +21,6 @@ lottoNum.sort((a,b) => a-b); // 모든 로또번호는 오름차순으로 정렬
 console.log(lottoNum); //.
 
 function App() {
-
-
   return (
     <div className="App">
        {/* 값을 props로 내려주기 */}

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import InnerPage from "./InnerPage";
 
 const TitleMessage = styled.h1`
   font-family: Arial, Helvetica, sans-serif;
@@ -9,7 +9,12 @@ const TitleMessage = styled.h1`
 `;
 
 const OuterPage = (props) => {
-  return <TitleMessage>COMMING SOMETHING NEW</TitleMessage>;
+  return (
+    <>
+      <TitleMessage>COMMING SOMETHING NEW</TitleMessage>
+      <InnerPage />
+    </>
+  );
 };
 
 export default OuterPage;
