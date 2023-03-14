@@ -12,7 +12,7 @@ const BorderBox = styled.div`
   margin-top: -40px;
 
   /* 테두리 설정 */
-  border: 10px solid #FEFEF1;
+  border: 10px solid #fefef1;
 `;
 
 const InnerBox = styled.main`
@@ -47,6 +47,8 @@ const SubCircle = styled.aside`
   margin-top: 200px;
 
   /* 원 내부 디자인 설정 */
+  background-image: url("https://images.unsplash.com/photo-1600134637836-9d015f520941?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80");
+  opacity: 0.3;
 `;
 
 const MainCircle = styled.article`
@@ -61,33 +63,38 @@ const MainCircle = styled.article`
 
   /* 원 위치 설정 */
   margin-top: 200px;
+
+  /* 배경화면 이미지 및 위치 설정 */
+  background-image: url("https://images.unsplash.com/photo-1517960413843-0aee8e2b3285?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1799&q=80");
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.65;
 `;
 
 const TextBox = styled.div`
-position: absolute;
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-left: 0;
-bottom: 0;
-margin-left: 100px;
-margin-bottom: 50px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  left: 0;
+  bottom: 0;
+  margin-left: 100px;
+  margin-bottom: 50px;
 `;
 
 const SubText = styled.p`
-  color: #727071;
+  color: #F9F5E7;
   margin-left: 10px;
   margin-bottom: 10px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 `;
 
 const MainText = styled.div`
-  color: #F6F4F4;
+  color: #f6f4f4;
   font-size: 60px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-weight: 700;
 `;
-
 
 const InnerPage = () => {
   return (
