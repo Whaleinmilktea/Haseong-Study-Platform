@@ -31,12 +31,17 @@ const App = () => {
     }
   ];
 
+  const addExpenseHandler = expenses => {
+    console.log('In App.js')
+    console.log(expenses)
+  }
+
   return (
     <div>
       {/* 전달해주는 코드 */}
       {/* item은 데이터가 담길 변수이므로 맘대로!, expense는 담길 객체/데이터의 이름 */}
       {/* 실제로 전달되는 값은 {name : [{id:"el", tilte:"멘토 매칭 서비스", amount : "99000", date: new Date(2020, 7, 14)}...] */}
-      <NewExpense />
+      <NewExpense onAddExpense={addExpenseHandler}/>
       <Expense item={expenses} />
     </div>
   );

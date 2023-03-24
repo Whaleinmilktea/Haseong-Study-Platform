@@ -1,11 +1,13 @@
 import styled from "styled-components"
 
-const PickNumCircle = styled.div`
-
+const PickNumAria = styled.div`
+  background-color: black;
+  width : 100px;
+  height : 100px;
 `
 
 const PickNum = () => {
-  return <PickNumCircle />
+  return <PickNumAria />
 }
 
 export default PickNum

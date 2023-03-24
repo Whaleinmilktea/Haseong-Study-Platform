@@ -1,3 +1,5 @@
+import PickNum from "../components/PickNum";
+
 const { default: styled } = require("styled-components");
 
 const BorderBox = styled.div`
@@ -102,7 +104,9 @@ const InnerPage = () => {
       <BorderBox>
         <InnerBox>
           <SubCircle></SubCircle>
-          <MainCircle></MainCircle>
+          <MainCircle>
+            <PickNum />
+          </MainCircle>
           <TextBox>
             <SubText>Made By Haseong</SubText>
             <MainText>To win, To buy a Ticket</MainText>
