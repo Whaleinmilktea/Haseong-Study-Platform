@@ -8,7 +8,7 @@ const TitleMessage = styled.h1`
   margin-top: 20px;
 `;
 
-const OuterPage = (props) => {
+const OuterPage = () => {
   return (
     <>
       <TitleMessage>COMMING SOMETHING NEW</TitleMessage>

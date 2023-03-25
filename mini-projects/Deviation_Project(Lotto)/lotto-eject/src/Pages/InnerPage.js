@@ -1,5 +1,5 @@
+import { useState } from "react";
 import PickNum from "../components/PickNum";
-
 const { default: styled } = require("styled-components");
 
 const BorderBox = styled.div`
@@ -35,6 +35,10 @@ const InnerBox = styled.main`
 `;
 
 const SubCircle = styled.aside`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   /* 종횡비 고정 */
   aspect-ratio: 1/1;
 
@@ -53,9 +57,21 @@ const SubCircle = styled.aside`
   opacity: 0.3;
 `;
 
+const PickNumBtn = styled.button`
+  background-color: rgba(0, 0, 0, 0.8);
+  border-color: white;
+  color: white;
+  width: 200px;
+  height: 50px;
+
+`
+
 const MainCircle = styled.article`
   /* 종횡비 고정 */
   aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   /* 원 크기 설정 */
   width: 800px;
@@ -85,7 +101,7 @@ const TextBox = styled.div`
 `;
 
 const SubText = styled.p`
-  color: #F9F5E7;
+  color: #f9f5e7;
   margin-left: 10px;
   margin-bottom: 10px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -99,14 +115,37 @@ const MainText = styled.div`
 `;
 
 const InnerPage = () => {
+
+  const [resultNum, setResultNum] = useState([]);
+
+  const handlePickBtn = () => {
+    let lottoNum = [];
+    for (let i = 0; i < 6; i++) {
+    let eachNum = Math.floor(Math.random() * 45) + 1;
+    for (let j in lottoNum) {
+      if (eachNum === lottoNum[j]) {
+        eachNum = Math.floor(Math.random() * 45) + 1;
+      }
+    }
+    lottoNum.push(eachNum);
+  }
+  let fineNum = lottoNum.sort((a,b) => a-b); // 모든 로또번호는 오름차순으로 정렬되기에 sort()로 정렬!
+  setResultNum(fineNum)
+  return resultNum
+  }
+
   return (
     <>
       <BorderBox>
         <InnerBox>
-          <SubCircle></SubCircle>
-          <MainCircle>
-            <PickNum />
-          </MainCircle>
+          <SubCircle>
+            <PickNumBtn onClick={handlePickBtn}>
+              Picked!!
+            </PickNumBtn>
+          </SubCircle>
+          <MainCircle >
+            <PickNum resultNum={resultNum}/>
+          </MainCircle >
           <TextBox>
             <SubText>Made By Haseong</SubText>
             <MainText>To win, To buy a Ticket</MainText>
