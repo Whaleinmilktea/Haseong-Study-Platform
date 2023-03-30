@@ -58,15 +58,19 @@ function detectNetwork(cardNumber) {
   }
 }
 
+function isEven (num) {
+  if (num % 2 === 0) {
+    return true
+  } else {
+    return false
+  }
+}
+
+isEven(22) // true
+
 // you don't have to worry about this code. keep this code.
 
 if (typeof window === "undefined") {
   module.exports = detectNetwork;
 }
 
-const arr1 = [6011, 65, 644, 645, 646, 647, 648, 649]
-cardNumber.length
-
-for (let i of arr1) {
-
-}

@@ -168,6 +168,4 @@ describe("Discover", function () {
       should.equal(detectNetwork(prefix + `${longCardLength}`), "Discover");
     });
   }
-
-
 });
