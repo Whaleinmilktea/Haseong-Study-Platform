@@ -1,69 +1,59 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link, Routes } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 const Home = () => {
-  return (
-    <div>
-      <h1>Home</h1>
-      <p>Welcome to my website!</p>
-    </div>
-  );
-};
-
-const About = () => {
-  return (
-    <div>
-      <h1>About</h1>
-      <p>This is the about page.</p>
-    </div>
-  );
+  return <h1>Home Page</h1>;
 };
 
 const Contact = () => {
+  return <h1>라우팅처리 된 Contact</h1>;
+};
+
+function About() {
   return (
     <div>
-      <h1>Contact</h1>
-      <p>You can contact me at:</p>
-      <ul>
-        <li>Phone: 555-555-5555</li>
-        <li>Email: me@example.com</li>
-      </ul>
+      <h1> 중첩 라우팅처리 된 Contact</h1>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/about/example1">Example01</Link>
+          </li>
+          <li>
+            <Link to="/about/example2">Example2</Link>
+          </li>
+        </ul>
+      </nav>
+      <Routes>
+        <Route path="/example1" element={<h2>예시1</h2>} />
+        <Route path="/example2" element={<h2>예시2</h2>} />
+      </Routes>
     </div>
   );
-};
+}
 
-const App = () => {
+function App() {
   return (
-    <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/contact">Contact</Link>
-            </li>
-          </ul>
-        </nav>
-
-        <Routes>
-          <Route path="/about" exact element={About />}>
-            <About />
-          </Route>
-          <Route path="/contact">
-            <Contact />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Routes>
-      </div>
-    </Router>
+    <BrowserRouter>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+        </ul>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </BrowserRouter>
   );
-};
+}
 
 export default App;
