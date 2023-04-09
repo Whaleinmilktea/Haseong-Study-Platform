@@ -1,150 +1,111 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { createContent } from "../reducer/contentController";
-
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
 
-const StyledWrapper = styled.div`
-  border-style: 1px solid black;
-`;
+const AddFormWrapper = styled.div``;
 
-const StyledForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  all: unset;
-  width: 300px;
+const OpenBtn = styled.button``;
 
-  & input {
-    all: unset;
-    width: 100%;
-    height: 30px;
-  }
-`;
+const CloseBtn = styled.button``;
 
-// * 언제 한번,, input에 들어갈 수 있는 타입 / 밸류 / 이벤트 핸들러를 정리해야겠다.
-const StyledInput = styled.input`
-  margin-bottom: 10px;
-`;
+const StyledForm = styled.form``;
 
-const Addform = () => {
-  const [work, setWork] = useState("");
-  const [time, setTime] = useState("");
-  const [date, setDate] = useState("");
-  const [type, setType] = useState("todos");
-  const dispatch = useDispatch();
+const AddForm = () => {
+  const [title, setTitle] = useState(""); // 입력한 내용
+  const [date, setDate] = useState(""); // 선택한 날짜
+  const [time, setTime] = useState(""); // 선택한 시간
+  const [routine, setRoutine] = useState(false); // 루틴 체크 여부 ==> 이에 따라 submit 시 store에 추가하는 데이터가 달라짐
+  const [todo, setTodo] = useState(false); // 투두 체크 여부
+  const [visible, setVisible] = useState(false); // 폼 보이기 여부
 
-  // props로 상태 끌어올리기 함수가 잘 들어오는지 확인
-  // console.log(props)
-
-  const handleWorkChange = (e) => {
-    setWork(e.target.value);
-  };
-
-  const handleTimeChange = (e) => {
-    setTime(e.target.value);
-  };
-  // 오전 오후시간에서 분을 30/00분만 선택하도록 설정하는 옵션
-  const generateTimeOptions = () => {
-    const options = [];
-
-    // 오전 시간 추가
-    for (let hour = 0; hour <= 11; hour++) {
-      for (let minute of ["00", "30"]) {
-        const label = `${hour.toString().padStart(2, "0")}:${minute} AM`;
-        const value = `${label}`;
-        options.push({ label, value });
-      }
+  const handleToggleForm = () => {
+    if (visible === false) {
+      setVisible(true);
+    } else {
+      setVisible(false);
     }
-
-    // 오후 시간 추가
-    for (let hour = 0; hour <= 11; hour++) {
-      for (let minute of ["00", "30"]) {
-        const label = `${hour.toString().padStart(2, "0")}:${minute} PM`;
-        const value = `${label}`;
-        options.push({ label, value });
-      }
-    }
-
-    return options;
+    // console.log(visible);
   };
-
-  const handleTypeChange = (e) => {
-    setType(e.target.value);
-  };
-
-  const handleDateChange = (e) => {
-    setDate(e.target.value);
-  };
-
-  const isRoutines = type === "routines"; // 루틴인지 아닌지 확인하는 변수 ===> 루틴이면 시간을 입력받지 않음
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!work || !type) {
-      alert("Work를 채워주세요!");
-      return;
-    }
-    const newItem = {
-      id: Date.now().toString(),
-      work,
-      date,
-      time,
-      type,
-      check: false,
+
+    // store에 데이터 추가 === todo와 routine을 구분해서 추가
+    const handleRoutineSumit = () => {
+      dispatch(addRoutine({ title, time }));
+      setTitle("");
+      setDate("");
+      setTime("");
+      setRoutine(false);
+      setTodo(false);
     };
-    // props.handleAddFormSubmit(newItem);
-    // 어차피 상태끌어올리기는 새로운 상태를 관리하기 위함! toolkit을 사용하게 됨으로써 더이상 필요없는 코드!
-    dispatch(createContent(newItem));
+
+    const handleTodoSubmit = () => {
+      dispatch(addTodo({ title, date, time }));
+      setTitle("");
+      setDate("");
+      setTime("");
+      setRoutine(false);
+      setTodo(false);
+    };
+
+    if (routine === true) {
+      handleRoutineSumit();
+    } else {
+      handleTodoSubmit();
+    }
+
+    // console.log("routine:", routine);
+    // console.log("todo:", todo);
   };
 
-  const storeState = useSelector((state) => state);
-
-  // function checkStore() {
-  //   console.log(storeState); // {contents: Array(0), filter: "all"} // Addform에서 slice를 통해 값이 잘 전달되고 있는지 점검하는 식
-  // }
-
   return (
-    <StyledWrapper>
-      <StyledForm onSubmit={handleSubmit}>
-        <label>
-          <StyledInput
-            placeholder="할 일"
+    <AddFormWrapper>
+      {visible === false ? (
+        <OpenBtn onClick={handleToggleForm}>+</OpenBtn>
+      ) : (
+        <StyledForm onSubmit={handleSubmit}>
+          <input
+            className="inputTitle"
             type="text"
-            value={work}
-            onChange={handleWorkChange}
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
           />
-        </label>
-        <label>
-          <select value={type} onChange={handleTypeChange}>
-            <option value="routines">Routines</option>
-            <option value="todos">To Do</option>
-          </select>
-        </label>
-        {isRoutines ? (
-          <label>
-            <input type="date" disabled onChange={handleDateChange} />
-          </label>
-        ) : (
-          <label>
-            <input type="date" onChange={handleDateChange} />
-          </label>
-        )}
-        <label>
-          <select value={time} onChange={handleTimeChange}>
-            {generateTimeOptions().map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </label>
-        <button type="submit">Add</button>
-        {/* <button type="button" onClick={checkStore}>
-        Check Store
-      </button> */}
-      </StyledForm>
-    </StyledWrapper>
+          <input
+            className="inputRoutine"
+            type="checkbox"
+            checked={routine}
+            onChange={(e) => setRoutine(e.target.checked)}
+          />
+          <label htmlFor="routine">Routine</label>
+          <input
+            className="inputTodo"
+            type="checkbox"
+            checked={todo}
+            onChange={(e) => setTodo(e.target.checked)}
+          />
+          <label htmlFor="todo">To do</label>
+          <input
+            className="inputDate"
+            type="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            disabled={routine} // 루틴 체크 시 비활성화
+          />
+          <input
+            className="inputTime"
+            type="time"
+            value={time}
+            onChange={(e) => setTime(e.target.value)}
+          />
+          <CloseBtn onClick={handleToggleForm}>-</CloseBtn>
+          <button type="submit" onClick={handleSubmit}>
+            Add!
+          </button>
+        </StyledForm>
+      )}
+    </AddFormWrapper>
   );
 };
 
-export default Addform;
+export default AddForm;
