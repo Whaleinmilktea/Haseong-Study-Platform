@@ -1,6 +1,8 @@
 import RoutineList from "../components/RoutineList";
 import styled from "styled-components";
 import { useState } from "react";
+import { AiOutlineEdit, AiOutlineCheckSquare } from 'react-icons/ai';
+
 
 const RoutineWrapper = styled.div``;
 
@@ -9,18 +11,22 @@ const RoutineGoalInputWrapper = styled.div`
 `;
 
 const RoutineGoalInput = styled.input`
-  width: 100%;
-  height: 30px;
+  display: flex;
+  align-items: center;
+  width: 98%;
+  height: 60px;
   margin-bottom: 20px;
 `;
 
 const RoutineEditButton = styled.button`
+  all : unset;
   position: absolute;
   top: 0;
   right: 0;
 `;
 
 const RoutineSaveButton = styled.button`
+  all : unset;
   position: absolute;
   top: 0;
   right: 0;
@@ -52,11 +58,11 @@ const RoutinePage = () => {
           />
           {!isEditing ? (
             <RoutineEditButton onClick={handleEditClick}>
-              Edit
+              <AiOutlineEdit />
             </RoutineEditButton>
           ) : (
             <RoutineSaveButton onClick={handleSaveClick}>
-              Save
+              <AiOutlineCheckSquare />
             </RoutineSaveButton>
           )}
         </RoutineGoalInputWrapper>

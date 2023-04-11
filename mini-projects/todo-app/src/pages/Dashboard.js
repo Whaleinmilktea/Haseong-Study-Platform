@@ -7,9 +7,9 @@ const DashBoardWrapper = styled.div``;
 const DashBoard = () => {
   return (
     <DashBoardWrapper>
-      <p>Routine</p>
+      <h2>Routine</h2>
       <RoutineList />
-      <p>Todo</p>
+      <h2>To do</h2>
       <TodoList />
     </DashBoardWrapper>
   );

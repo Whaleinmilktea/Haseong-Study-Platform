@@ -10,16 +10,17 @@ import Weather from "./pages/Weather";
 const AppWrapper = styled.div`
   width: 400px;
   height: 700px;
-  background-color: #f5f5f5;
+  background-color: #fff;
   border-radius: 5px;
 `;
 
 const NavList = styled.ul`
   display: flex;
+  font: 300;
   justify-content: space-between;
-  padding: 0;
-  margin: 0;
-  margin-bottom: 10px;
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   list-style: none;
 `;
 

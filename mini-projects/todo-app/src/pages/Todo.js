@@ -1,6 +1,8 @@
 import TodoList from "../components/TodoList";
 import { useState } from "react";
 import styled from "styled-components";
+import { AiOutlineEdit, AiOutlineCheckSquare } from 'react-icons/ai';
+
 
 const TodoWrapper = styled.div``;
 
@@ -9,22 +11,27 @@ const TodoGoalInputWrapper = styled.div`
 `;
 
 const TodoGoalInput = styled.input`
-  width: 100%;
-  height: 30px;
+  display: flex;
+  align-items: center;
+  width: 98%;
+  height: 60px;
   margin-bottom: 20px;
 `;
 
 const TodoEditButton = styled.button`
+  all: unset;
   position: absolute;
   top: 0;
   right: 0;
 `;
 
 const TodoSaveButton = styled.button`
+  all: unset;
   position: absolute;
   top: 0;
   right: 0;
 `;
+
 const TodoPage = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [goalInputValue, setGoalInputValue] = useState("");
@@ -41,7 +48,7 @@ const TodoPage = () => {
   return (
     <>
       <TodoWrapper>
-        <h3>To do List</h3>
+        <h2>To do List</h2>
         <TodoGoalInputWrapper>
           <TodoGoalInput
             type="text"
@@ -52,11 +59,11 @@ const TodoPage = () => {
           />
           {!isEditing ? (
             <TodoEditButton onClick={handleEditClick}>
-              Edit
+              <AiOutlineEdit />
             </TodoEditButton>
           ) : (
             <TodoSaveButton onClick={handleSaveClick}>
-              Save
+              <AiOutlineCheckSquare />
             </TodoSaveButton>
           )}
 
