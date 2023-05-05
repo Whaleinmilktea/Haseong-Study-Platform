@@ -1,5 +1,6 @@
 const inputOne = document.getElementById("num1") as HTMLInputElement;
 const inputTwo = document.getElementById("num2") as HTMLInputElement;
+const inputThree = document.getElementById("num2") as HTMLInputElement;
 const testBtn = document.querySelector("button") as HTMLButtonElement;
 
 function add(a: number, b: number) {
