@@ -22,11 +22,22 @@ slice1 = numbers[1:5]
 print(slice1)
 [1, 2, 3, 4]
 ```
--
-
 ### 튜플
+- 리스트와 같은 개념이지만, 수정/삭제가 불가능하다.
+- Read-Only
+```
+t1 = (1,"hello")
+
+print(ti)
+// (1, 'hello')
+```
 
 ### 딕셔너리
+- 키:값으로 이뤄진 형태
+```
+dic = {1 : "My" , 2:"Name", 3:"Is", 4:"Python"}
+print(dic[1])
+```
 
 ### 집합
 
