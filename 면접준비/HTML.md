@@ -4,7 +4,7 @@
 
 ## 🩻 SEO는 무엇인가요?
 
-## 🩻 <section>과 <article>의 차이는 무엇인가요?
+## 🩻 ```<section>```과 ```<article>```의 차이는 무엇인가요?
 
 ## 🩻 HTML5 tag를 설명해 주세요.
 
