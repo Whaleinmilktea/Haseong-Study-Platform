@@ -29,7 +29,7 @@
 
 ## ✨브라우저 렌더링 방식✨
 
-## ✨Call-Stack과 Task Queue✨
+## ✨Call-Stack과 Task Queue✨
 
 ## ✨Cors가 무엇이며 어떻게 해결할 수 있는가?✨
 
