@@ -1,18 +1,30 @@
 #  **************************************************************************  #
 #                                                                              #
 #                                                       :::    :::    :::      #
-#    Problem Number: 15552                             :+:    :+:      :+:     #
+#    Problem Number: 11720                             :+:    :+:      :+:     #
 #                                                     +:+    +:+        +:+    #
 #    By: shaawwert6044 <boj.kr/u/shaawwert6044>      +#+    +#+          +#+   #
 #                                                   +#+      +#+        +#+    #
-#    https://boj.kr/15552                          #+#        #+#      #+#     #
-#    Solved: 2023/08/11 09:13:02 by shaawwert6044 ###          ###   ##.kr     #
+#    https://boj.kr/11720                          #+#        #+#      #+#     #
+#    Solved: 2023/08/11 09:30:48 by shaawwert6044 ###          ###   ##.kr     #
 #                                                                              #
 #  **************************************************************************  #
-import sys
-# t = int(intput().split())
-t = int(sys.stdin.readline())
-for _ in range(t):
-    # a,b = map(int, sys.stdin.readline().split())
-    a,b = map(int, sys.stdin.readline().split())
-    print(a+b)
+# import sys
+# input = sys.stdin.readline
+
+# n = int(input())
+
+# for i in range(n-1):
+#     a = 0
+#     arr = list(map(int,input().split()))
+#     a += arr[int(i)]
+#     print(a)
+
+n = input()
+numbers = list(input())
+a = 0
+
+for i in numbers:
+    a += int(i)
+
+print(a)
