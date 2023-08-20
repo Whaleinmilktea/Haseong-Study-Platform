@@ -1,28 +1,30 @@
 #  **************************************************************************  #
 #                                                                              #
 #                                                       :::    :::    :::      #
-#    Problem Number: 2908                              :+:    :+:      :+:     #
+#    Problem Number: 2750                              :+:    :+:      :+:     #
 #                                                     +:+    +:+        +:+    #
 #    By: shaawwert6044 <boj.kr/u/shaawwert6044>      +#+    +#+          +#+   #
 #                                                   +#+      +#+        +#+    #
-#    https://boj.kr/2908                           #+#        #+#      #+#     #
-#    Solved: 2023/08/20 12:14:36 by shaawwert6044 ###          ###   ##.kr     #
+#    https://boj.kr/2750                           #+#        #+#      #+#     #
+#    Solved: 2023/08/20 12:35:38 by shaawwert6044 ###          ###   ##.kr     #
 #                                                                              #
 #  **************************************************************************  #
 
-# 입력 : 2개 수
-# ! 오른쪽부터 읽기 : 빈 문자열 선언(새로운 값 ㅣ 변수를 생각하자!) -> for문으로 돌아서 조작!
-# 대소비교 (min, max)
+# N : 정렬할 수
+# 스택 = LIFO 사용 : LAST IN FIRST OUT X
+# 들어오는 값들을 저장할 자료구조 필요 : 별도의 변수 X
+# ! 그냥 sorted 메서드로 정렬하는 문제
 
 import sys
 input = sys.stdin.readline
 
-a, b = map(str, input().split())
-reverse_a = ""
-reverse_b = ""
+N = int(input())
+num_list = []
 
-for i in range(3):
-    reverse_a = a[i] + reverse_a
-    reverse_b = b[i] + reverse_b
+for i in range(N):
+    num_list.append(int(input()))
 
-print(max(reverse_a, reverse_b))
+sorted_list = sorted(num_list)
+
+for i in range(N):
+    print(sorted_list[i])
