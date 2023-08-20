@@ -9,3 +9,14 @@
 #    Solved: 2023/08/19 15:26:06 by shaawwert6044 ###          ###   ##.kr     #
 #                                                                              #
 #  **************************************************************************  #
+import sys
+input = sys.stdin.readline
+n = []
+
+for _ in range(10):
+    a = int(input())
+    b = a % 42
+    n.append(b)
+
+s = set(n)
+print(len(s))
