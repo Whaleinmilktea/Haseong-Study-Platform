@@ -12,5 +12,12 @@
 import sys
 input = sys.stdin.readline
 
-num_pitches = list(map(input().split()))
-print(num_pitches)
+num_pitches = list(map(int, input().split()))
+ascending = [1, 2, 3, 4, 5, 6, 7, 8]
+
+if num_pitches == ascending:
+    print("ascending")
+elif num_pitches == sorted(ascending, reverse=True):
+    print("descending")
+else:
+    print("mixed")
