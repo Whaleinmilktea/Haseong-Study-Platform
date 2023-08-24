@@ -1,23 +1,26 @@
 #  **************************************************************************  #
 #                                                                              #
 #                                                       :::    :::    :::      #
-#    Problem Number: 1546                              :+:    :+:      :+:     #
+#    Problem Number: 1110                              :+:    :+:      :+:     #
 #                                                     +:+    +:+        +:+    #
 #    By: shaawwert6044 <boj.kr/u/shaawwert6044>      +#+    +#+          +#+   #
 #                                                   +#+      +#+        +#+    #
-#    https://boj.kr/1546                           #+#        #+#      #+#     #
-#    Solved: 2023/08/24 14:47:44 by shaawwert6044 ###          ###   ##.kr     #
+#    https://boj.kr/1110                           #+#        #+#      #+#     #
+#    Solved: 2023/08/24 15:12:55 by shaawwert6044 ###          ###   ##.kr     #
 #                                                                              #
 #  **************************************************************************  #
 n = int(input())
-score_list = list(map(int, input().split()))
+cycle_n = n
+count = 0
 
-max_score = max(score_list) # 최고점
+while True:
+    a = cycle_n // 10 # "2"6
+    b = cycle_n % 10 # 2"6"
+    c = (a + b) % 10 # "8"
+    cycle_n = (b * 10) + c
+    count += 1
 
-for i in range(0, len(score_list)):
-    # if score_list[i] == max_score: # ! 문제에서 요구하지 않는 쓸데없는 예외처리는 금물!
-    #     continue
-    # else:
-        score_list[i] = (score_list[i]/max_score)*100
+    if (cycle_n == n):
+        break
 
-print(sum(score_list)/n)
+print(count)
