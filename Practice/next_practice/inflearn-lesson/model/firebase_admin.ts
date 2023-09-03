@@ -45,6 +45,7 @@ export default class FirebaseAdmin {
   }
 
   /** Firestore를 반환 */
+  // ? setter와 getter
   public get Firebase(): FirebaseFirestore.Firestore {
     if (this.init === false) {
       this.bootstrap();
