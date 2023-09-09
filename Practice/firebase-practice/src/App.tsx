@@ -7,6 +7,7 @@ import CreateAccount from "./routes/create-account";
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 import { useEffect, useState } from "react";
+import LoadingScreen from "./components/loading-screen";
 
 const router = createBrowserRouter([
   {
@@ -49,10 +50,15 @@ const GlobalStyles = createGlobalStyle`
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+
+  // init(initialization), bootstrap 모두 시스템 구동 시 환경을 초기화하는 변
   const init = async () => {
     // 파이어베이스의 인증시간 대기상태
-    setIsLoading(false);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
   };
+
   useEffect(() => {
     init();
   }, []);
@@ -60,7 +66,7 @@ function App() {
   return (
     <>
       <GlobalStyles />
-      <RouterProvider router={router} />
+      {isLoading ? <LoadingScreen /> : <RouterProvider router={router} />}
     </>
   );
 }
