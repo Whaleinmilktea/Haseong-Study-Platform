@@ -54,9 +54,7 @@ function App() {
   // init(initialization), bootstrap 모두 시스템 구동 시 환경을 초기화하는 변
   const init = async () => {
     // 파이어베이스의 인증시간 대기상태
-    setTimeout(() => {
       setIsLoading(false);
-    }, 2000);
   };
 
   useEffect(() => {
