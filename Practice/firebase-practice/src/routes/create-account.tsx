@@ -68,6 +68,7 @@ const CreateAccount = () => {
     if (isLoading || name === "" || email === "" || password === "") return;
       try {
         // 계정생성
+        setIsLoading(true)
         const credentials = await createUserWithEmailAndPassword(auth, email, password);
         console.log(credentials.user)
         // 유저 이름 설정
@@ -75,6 +76,7 @@ const CreateAccount = () => {
         await updateProfile(credentials.user, {
           displayName: name
         })
+        navigate("/")
       } catch (e) {
 
       } finally {
