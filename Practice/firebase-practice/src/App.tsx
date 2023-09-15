@@ -9,11 +9,16 @@ import reset from "styled-reset";
 import { useEffect, useState } from "react";
 import LoadingScreen from "./components/loading-screen";
 import { auth } from "./firebase";
+import ProtectedRoute from "./components/protected-route";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
+    element: (
+      <ProtectedRoute>
+        <Layout />
+      </ProtectedRoute>
+    ),
     children: [
       {
         path: "",
@@ -52,7 +57,7 @@ const Wrapper = styled.div`
   height: 100vh;
   display: flex;
   justify-content: center;
-`
+`;
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -60,7 +65,7 @@ function App() {
   // init(initialization), bootstrap 모두 시스템 구동 시 환경을 초기화하는 변
   const init = async () => {
     await auth.authStateReady();
-      setIsLoading(false);
+    setIsLoading(false);
   };
 
   useEffect(() => {
