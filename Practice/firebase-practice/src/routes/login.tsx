@@ -4,7 +4,15 @@ import { Link, useNavigate } from "react-router-dom";
 import { FirebaseError } from "firebase/app";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
-import { Input, Switcher, Title, Wrapper, Error, Form } from "../components/auth-component";
+import {
+  Input,
+  Switcher,
+  Title,
+  Wrapper,
+  Error,
+  Form,
+} from "../components/auth-component";
+import GithubButton from "../components/github-button";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -72,6 +80,7 @@ const Login = () => {
       <Switcher>
         계정이 없으신가요? <Link to="/create-account">회원가입</Link>
       </Switcher>
+      <GithubButton />
     </Wrapper>
   );
 };
