@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { auth } from "../firebase";
+import Home from "../routes/home";
 
 const Wrapper = styled.div`
   display: grid;
@@ -106,6 +107,7 @@ const Layout = () => {
           </svg>
         </MenuItem>
       </Menu>
+      <Home />
     </Wrapper>
   );
 };
