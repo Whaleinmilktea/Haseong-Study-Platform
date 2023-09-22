@@ -23,7 +23,7 @@ const Logo = styled.img`
   height: 25px;
 `;
 
-const GithubButton = () => {
+const GoogleButton = () => {
   const navigate = useNavigate()
   const handleButtonClick = async () => {
     try {
@@ -42,4 +42,4 @@ const GithubButton = () => {
   );
 };
 
-export default GithubButton;
+export default GoogleButton;

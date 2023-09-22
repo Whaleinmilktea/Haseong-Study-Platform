@@ -92,7 +92,6 @@ const PostTweetForm = () => {
         );
         const result = await uploadBytes(locationRef, file);
         const url = await getDownloadURL(result.ref);
-        console.log(url)
         await updateDoc(doc, {
           photo: url,
         });
