@@ -1,3 +1,4 @@
+import { BallTriangle } from "react-loader-spinner";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -7,14 +8,17 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const Text = styled.span`
-  font-size: 24px;
-`;
-
 const LoadingScreen = () => {
   return (
     <Wrapper>
-      <Text>Loading</Text>
+      <BallTriangle
+        height={100}
+        width={100}
+        radius={5}
+        color="#1d9bf0"
+        ariaLabel="ball-triangle-loading"
+        visible={true}
+      />
     </Wrapper>
   );
 };
