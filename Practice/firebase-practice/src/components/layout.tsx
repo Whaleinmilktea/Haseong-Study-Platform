@@ -1,7 +1,6 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { auth } from "../firebase";
-import Home from "../routes/home";
 
 const Wrapper = styled.div`
   display: grid;
@@ -107,7 +106,8 @@ const Layout = () => {
           </svg>
         </MenuItem>
       </Menu>
-      <Home />
+      {/* Outlet과 각 요소들의 관계파악에 주의! */}
+      <Outlet />
     </Wrapper>
   );
 };

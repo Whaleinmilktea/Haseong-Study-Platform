@@ -26,6 +26,9 @@ const AvatarUpload = styled.label`
 `;
 const AvatarImg = styled.img`
   width: 100%;
+  hover {
+    filter: grayscale(100%) brightness(75%);
+  }
 `;
 const AvatarInput = styled.input`
   display: none;
@@ -33,13 +36,20 @@ const AvatarInput = styled.input`
 const Name = styled.span`
   font-size: 22px;
 `;
+const Tweets = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 10px;
+`;
 
 export default function Profile() {
   const user = auth.currentUser;
   const [avatar, setAvatar] = useState(user?.photoURL);
   const onAvatarChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const { files } = e.target;
-    if (!user) return;
+    const ok = confirm("정말로 프로필 이미지를 바꾸겠습니까?");
+    if (!ok || !user) return;
     if (files && files.length === 1) {
       const file = files[0];
       const locationRef = ref(storage, `avatars/${user?.uid}`);
@@ -74,6 +84,7 @@ export default function Profile() {
         accept="image/*"
       />
       <Name>{user?.displayName ?? "Anonymous"}</Name>
+      <Tweets></Tweets>
     </Wrapper>
   );
 }
