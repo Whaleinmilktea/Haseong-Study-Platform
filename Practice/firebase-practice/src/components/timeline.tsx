@@ -26,6 +26,7 @@ export interface ITweet {
 
 export default function Timeline() {
   const [tweets, setTweets] = useState<ITweet[]>([]);
+  console.log(tweets)
 
   useEffect(() => {
     let unsubscribe: Unsubscribe | null = null

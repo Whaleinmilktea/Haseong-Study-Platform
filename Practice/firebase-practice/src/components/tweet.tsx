@@ -2,8 +2,13 @@ import styled from "styled-components";
 import { ITweet } from "./timeline";
 import { AiOutlineEdit, AiOutlineDelete, AiOutlineCheck } from "react-icons/ai";
 import { auth, db, storage } from "../firebase";
-import { deleteDoc, doc } from "firebase/firestore";
-import { deleteObject, ref } from "firebase/storage";
+import { deleteDoc, doc, updateDoc } from "firebase/firestore";
+import {
+  deleteObject,
+  getDownloadURL,
+  ref,
+  uploadBytes,
+} from "firebase/storage";
 import { ChangeEvent, useState } from "react";
 
 const Wrapper = styled.div``;
@@ -41,10 +46,12 @@ const EditArea = styled.textarea`
     border-color: #1d9bf0;
   }
 `;
+const PhotoLabel = styled.label``;
 const Photo = styled.img`
   width: 120px;
   height: 120px;
   border-radius: 15px;
+  cursor: pointer;
 `;
 const CreatedAt = styled.div`
   display: flex;
@@ -70,7 +77,13 @@ const EditButton = styled.div`
     cursor: pointer;
   }
 `;
-const EditCancelButton = styled.div``;
+const SaveEditButton = styled.div`
+  margin-top: 10px;
+  color: #1d9bf0;
+`;
+const EditPhotoInput = styled.input`
+  display: none;
+`;
 
 export default function Tweet({
   id,
@@ -82,11 +95,12 @@ export default function Tweet({
 }: ITweet) {
   const [edit, setEdit] = useState(false);
   const [newTweet, setNewTweet] = useState(tweet);
+  const [tweetPhoto, setTweetPhoto] = useState(photo);
 
   const user = auth.currentUser;
   const timeStamp = new Date(createdAt).toLocaleString();
 
-  const DeleteTweet = async () => {
+  const deleteTweet = async () => {
     const ok = confirm("정말로 트윗을 제거하시겠습니까?");
     if (!ok || user?.uid !== userId) return;
     try {
@@ -100,16 +114,40 @@ export default function Tweet({
     }
   };
 
-  const EditTweet = (e: ChangeEvent<HTMLTextAreaElement>) => {
+  const editTweet = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setNewTweet(e.target.value);
   };
 
-  const SaveEditTweet = async () => {
+  const saveEditTweet = async () => {
+    if (!user || tweet === newTweet) setEdit(!edit); // 이전 트윗과 동일할 경우 변경하지 않고, edit 종료
+    try {
+      await updateDoc(doc(db, "tweets", id), {
+        tweet: newTweet,
+      });
+    } catch (e) {
+      console.log(e);
+    } finally {
+      setEdit(!edit);
+    }
+  };
 
-  }
+  const editPhoto = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault()
+    const { files } = e.target;
+    const ok = confirm("정말로 트윗의 이미지를 수정하시겠습니까?");
+    if (!ok || !user || files === null) return;
+    const file = files[0];
+    const locationRef = ref(storage, `tweets/${user.uid}${id}`);
+    const result = await uploadBytes(locationRef, file);
+    const tweetPhotoUrl = await getDownloadURL(result.ref);
+    setTweetPhoto(tweetPhotoUrl);
+    await updateDoc(doc(db, "tweets", id), {
+      photo: tweetPhotoUrl,
+    });
+  };
 
   return (
-    <Wrapper>
+    <Wrapper onClick={() => console.log(`Wapper 클릭 시 : ${id}`)}>
       <CreatedAt>
         {timeStamp}{" "}
         {user?.uid === userId ? (
@@ -117,7 +155,7 @@ export default function Tweet({
             <EditButton onClick={() => setEdit(!edit)}>
               <AiOutlineEdit />
             </EditButton>
-            <DeleteButton onClick={DeleteTweet}>
+            <DeleteButton onClick={deleteTweet}>
               <AiOutlineDelete />
             </DeleteButton>
           </>
@@ -128,16 +166,28 @@ export default function Tweet({
           <Username>{username}</Username>
           {edit ? (
             <Payload>
-              <EditArea value={newTweet} onChange={EditTweet}></EditArea>
-              <EditCancelButton>
+              <EditArea value={newTweet} onChange={editTweet}></EditArea>
+              <SaveEditButton onClick={saveEditTweet}>
                 <AiOutlineCheck />
-              </EditCancelButton>
+              </SaveEditButton>
             </Payload>
           ) : (
             <Payload>{tweet}</Payload>
           )}
         </Column>
-        <Column>{photo ? <Photo src={photo}></Photo> : null}</Column>
+        <Column>
+          {photo ? (
+            <PhotoLabel htmlFor="edit-photo">
+              <Photo src={tweetPhoto}></Photo>
+            </PhotoLabel>
+          ) : null}
+        </Column>
+        <EditPhotoInput
+          onChange={editPhoto}
+          id="edit-photo"
+          type="file"
+          accept="image/*"
+        ></EditPhotoInput>
       </Box>
     </Wrapper>
   );
