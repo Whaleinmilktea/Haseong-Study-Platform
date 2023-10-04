@@ -97,6 +97,8 @@ export default function Tweet({
   const [newTweet, setNewTweet] = useState(tweet);
   const [tweetPhoto, setTweetPhoto] = useState(photo);
 
+  console.log(`Wapper의 문제인가? : ${id}`)
+
   const user = auth.currentUser;
   const timeStamp = new Date(createdAt).toLocaleString();
 
@@ -132,7 +134,8 @@ export default function Tweet({
   };
 
   const editPhoto = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault()
+    e.stopPropagation() // 이벤트버블링을 막았는데도?
+    console.log(id)
     const { files } = e.target;
     const ok = confirm("정말로 트윗의 이미지를 수정하시겠습니까?");
     if (!ok || !user || files === null) return;

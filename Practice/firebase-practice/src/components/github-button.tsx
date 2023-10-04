@@ -2,6 +2,7 @@ import { GithubAuthProvider, signInWithPopup } from "firebase/auth";
 import styled from "styled-components";
 import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
+import { BsGithub } from "react-icons/bs"
 
 const Button = styled.span`
   margin-top: 50px;
@@ -19,10 +20,6 @@ const Button = styled.span`
   cursor: pointer;
 `;
 
-const Logo = styled.img`
-  height: 25px;
-`;
-
 const GithubButton = () => {
   const navigate = useNavigate()
   const handleButtonClick = async () => {
@@ -37,7 +34,7 @@ const GithubButton = () => {
 
   return (
     <Button onClick={handleButtonClick}>
-      <Logo src="../assets/github-logo.svg" /> Github 로그인
+      <BsGithub/> Github 로그인
     </Button>
   );
 };

@@ -13,6 +13,7 @@ import {
   Form,
 } from "../components/auth-component";
 import GithubButton from "../components/github-button";
+import GoogleButton from "../components/google-button";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -80,7 +81,9 @@ const Login = () => {
       <Switcher>
         계정이 없으신가요? <Link to="/create-account">회원가입</Link>
       </Switcher>
+
       <GithubButton />
+      <GoogleButton />
     </Wrapper>
   );
 };

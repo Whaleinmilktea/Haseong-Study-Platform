@@ -1,11 +1,12 @@
-import { GithubAuthProvider, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import styled from "styled-components";
 import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
 
 const Button = styled.span`
-  margin-top: 50px;
   background-color: white;
+  margin-top: 10px;
   font-weight: 500;
   width: 100%;
   color: black;
@@ -19,17 +20,13 @@ const Button = styled.span`
   cursor: pointer;
 `;
 
-const Logo = styled.img`
-  height: 25px;
-`;
-
 const GoogleButton = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleButtonClick = async () => {
     try {
-      const provider = new GithubAuthProvider();
+      const provider = new GoogleAuthProvider();
       await signInWithPopup(auth, provider);
-      navigate("/")
+      navigate("/");
     } catch (e) {
       alert(e);
     }
@@ -37,7 +34,7 @@ const GoogleButton = () => {
 
   return (
     <Button onClick={handleButtonClick}>
-      <Logo src="../assets/github-logo.svg" /> Github 로그인
+      <FcGoogle /> Google 로그인
     </Button>
   );
 };
