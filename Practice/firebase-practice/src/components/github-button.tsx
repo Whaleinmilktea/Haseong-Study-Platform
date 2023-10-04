@@ -5,10 +5,10 @@ import { useNavigate } from "react-router-dom";
 import { BsGithub } from "react-icons/bs"
 
 const Button = styled.span`
-  margin-top: 50px;
+  margin-top: 20px;
   background-color: white;
   font-weight: 500;
-  width: 100%;
+  width: 50%;
   color: black;
   padding: 10px 20px;
   border-radius: 50px;

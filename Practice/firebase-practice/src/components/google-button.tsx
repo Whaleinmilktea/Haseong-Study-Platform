@@ -7,8 +7,9 @@ import { FcGoogle } from "react-icons/fc";
 const Button = styled.span`
   background-color: white;
   margin-top: 10px;
+  margin-bottom: 20px;
   font-weight: 500;
-  width: 100%;
+  width: 50%;
   color: black;
   padding: 10px 20px;
   border-radius: 50px;
