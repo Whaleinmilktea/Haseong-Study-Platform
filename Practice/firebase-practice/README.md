@@ -14,16 +14,16 @@
 
 
 ## 목차
-> [1. firebase의 Authentication, Cloud Firebase, Firestore 간단 정리](#1-firebase의-authentication-cloud-firebase-firestore-간단-정리)
-> [2. firebase.ts로 프로젝트 config 설정](#2-firebasets로-프로젝트-config-설정)
-> [3. Routing 설정](#3-routing-설정)
-> [4. 게시물 생성 및 저장](#4-게시물-생성-및-저장)
-> [5. 게시물 수정](#5-게시물-수정)
-> [6. 해결중인 문제](#6-해결중인-issue)
-> [7. 빌드 & 배포 & 의존성 & Dev 실행 명령어](#7-빌드--배포--의존성--dev-실행-명령어)
+- [1. firebase의 Authentication, Cloud Firebase, Firestore 간단 정리](#1-firebase의-authentication-cloud-firebase-firestore-간단-정리)
+- [2. firebase.ts로 프로젝트 config 설정](#2-firebasets로-프로젝트-config-설정)
+- [3. Routing 설정](#3-routing-설정)
+- [4. 게시물 생성 및 저장](#4-게시물-생성-및-저장)
+- [5. 게시물 수정](#5-게시물-수정)
+- [6. 해결중인 문제](#6-해결중인-issue)
+- [7. 빌드 & 배포 & 의존성 & Dev 실행 명령어](#7-빌드--배포--의존성--dev-실행-명령어)
 
 ## 내용
-#### 1. firebase의 Authentication, Cloud Firebase, Firestore 간단 정리
+### 1. firebase의 Authentication, Cloud Firebase, Firestore 간단 정리
 
 Firebase는 구글에서 제공하는 서비스형 백엔드(BaaS)이다. Firebase에서 제공하는 서비스는 크게 빌드, 출시 및 모니터링, 참여로 나뉘는데 본 프로젝트에서는 웹을 제작하는데 사용되는 인증, db, storage만을 사용하기에 빌드부분만을 다뤘다.
 
@@ -55,12 +55,13 @@ Firebase는 비관계형 데이테베이스(NoSQL)을 기반으로 하며, 관�
 
 Firestore는 클라이언트에서 생성된 문서를 컬렉션(디렉토리)에 저장하고, 요청에 따라 업데이트한다. 또한 인덱싱을 활용해 복잡한 쿼리를 빠르게 처리할 수 있다.
 [firebase 데이터 구조 선택](https://firebase.google.com/docs/firestore/manage-data/structure-data?hl=ko)
+
 *핵심 : 클라이언트에서 서버리스 프로젝트를 진행할 때, 별도의 node.js 쿼리 처리 로직 없이 firebase 콘솔에서 제공하는 GUI 형태의 인덱싱을 가지고 쉽게 쿼리를 구현할 수 있다는 점!
 
 Storage는 Google Cloud Storage를 기반으로 하는 파일 저장 서비스이다. 사용자가 생성한 각종 컨텐츠(이미지, 비디오, 오디오 등)를 저장하기에 적합하며 Firebase SDK를 활용해 간편하게 파일을 업로드할 수 있다.
 [storage 시작하기](https://firebase.google.com/docs/storage/web/start?hl=ko)
 
-#### 2. firebase.ts로 프로젝트 config 설정
+### 2. firebase.ts로 프로젝트 config 설정
 ```javascript
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
@@ -88,7 +89,7 @@ export const storage = getStorage(app); // Firebase에서 제공하는 getStorag
 export const db = getFirestore(app); // Firebase에서 제공하는 getStorage()메서드를 통해 앱의 cloudfirestore 참조(ref)주소를 보관
 ```
 
-#### 3. Routing 설정
+### 3. Routing 설정
 - 관련 파일 : [App.tsx](./src/App.tsx)
 ```javascript
 // 라우팅하고자 하는 컴포넌트를 Layout에 담고, BrowserRouter 객체에 담아 RouterProvier에 전달
@@ -122,7 +123,7 @@ const router = createBrowserRouter([
 ]);
 ```
 
-#### 4. 게시물 생성 및 저장
+### 4. 게시물 생성 및 저장
 - 관련 파일 : [post-tweet-form.tsx](./src/components/post-tweet-form.tsx)
 ```javascript
 const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -158,7 +159,7 @@ const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       }
 ```
 
-#### 5. 게시물 수정
+### 5. 게시물 수정
 - 관련 파일 : [tweet.tsx](./src/components/tweet.tsx)
 ```javascript
   const saveEditTweet = async () => {
@@ -177,7 +178,7 @@ const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   };
 ```
 
-#### 6. 해결중인 Issue
+### 6. 해결중인 Issue
 - 관련 파일 : [tweet.tsx](./src/components/tweet.tsx)
 ```javascript
   const editPhoto = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -201,7 +202,7 @@ const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   };
 ```
 
-#### 7. 빌드 & 배포 & 의존성 & Dev 실행 명령어
+### 7. 빌드 & 배포 & 의존성 & Dev 실행 명령어
 - 빌드 : Vite @4.4.5, Typescript @5.0.2, React @18.2.0, swc @3.3.2
 - 배포 : Netlify
 - 의존성 : firebase @10.5.2, react-router-dom @6.14.2, styled-components @6.0.7
