@@ -18,15 +18,15 @@ def d(n):
     result = n
     while n > 0:
         result += n % 10
-        n //= 10
+        n //= 10 #? //= 문법
     return result
 
 # 1부터 10,000까지의 숫자 중에서 생성자가 있는 숫자들을 찾음
-generated_numbers = set()
+nums = set() #? set 자료형 공부하기
 for i in range(1, 10001):
-    generated_numbers.add(d(i))
+    nums.add(d(i))
 
 # 1부터 10,000까지의 숫자 중에서 생성자가 없는 숫자를 출력
 for i in range(1, 10001):
-    if i not in generated_numbers:
+    if i not in nums:
         print(i)
