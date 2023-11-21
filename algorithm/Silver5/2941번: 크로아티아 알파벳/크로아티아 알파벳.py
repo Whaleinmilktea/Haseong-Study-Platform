@@ -1,23 +1,22 @@
 #  **************************************************************************  #
 #                                                                              #
 #                                                       :::    :::    :::      #
-#    Problem Number: 27433                             :+:    :+:      :+:     #
+#    Problem Number: 2941                              :+:    :+:      :+:     #
 #                                                     +:+    +:+        +:+    #
 #    By: shaawwert6044 <boj.kr/u/shaawwert6044>      +#+    +#+          +#+   #
 #                                                   +#+      +#+        +#+    #
-#    https://boj.kr/27433                          #+#        #+#      #+#     #
-#    Solved: 2023/09/25 19:34:19 by shaawwert6044 ###          ###   ##.kr     #
+#    https://boj.kr/2941                           #+#        #+#      #+#     #
+#    Solved: 2023/11/16 01:14:36 by shaawwert6044 ###          ###   ##.kr     #
 #                                                                              #
 #  **************************************************************************  #
 import sys
 input = sys.stdin.readline
-n = int(input())
+s = set(input().strip())
+d = { "c=", "c-", "dz=", "d-", "lj", "nj", "s=", "z="}
+l = len(s)
+c = 0
 
-def fac(n):
-  # 재귀종료 조건
-  if n <= 1: # 0일 경우는 예제에 나와있음..
-    return 1
-  # 리턴문
-  return n * fac(n-1) # 재귀 호출
+if s in d:
+  c += 1
 
-print(fac(n))
+print(c)

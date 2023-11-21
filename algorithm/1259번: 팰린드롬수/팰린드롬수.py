@@ -13,7 +13,7 @@ while True:
   n = input()
   reversed_n = n[::-1]
   if n == "0":
-    break
+    break # False를 사용할 경우, 코드는 아무런 작업을 하지 않고 종료됨
   if n == reversed_n:
     print("yes")
   else:
