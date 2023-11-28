@@ -9,14 +9,26 @@
 #    Solved: 2023/08/19 14:28:50 by shaawwert6044 ###          ###   ##.kr     #
 #                                                                              #
 #  **************************************************************************  #
-import sys
-input = sys.stdin.readline
-
 a = int(input())
 b = int(input())
 c = int(input())
+r = list(str(a*b*c))
 
-count_num = str(a*b*c)
-print(int(count_num.count("0")))
-for i in range(1, 10):
-    print(int(count_num.count(f"{i}")))
+# for i in range(10):
+#   print(r.count(str(i)))
+
+# 의사코드
+# 인덱스는 ++
+# 반복되는 로직 : 리스트에서 인덱스에 해당하는 값을 count한 뒤 print
+
+# 모든 반복문은 재귀로 변환할 수 있다!
+def solution(l, index):
+  # 종료조건
+  if index >9:
+    return
+  # 실행로직
+  print(l.count(str(index)))
+  # 재귀호출
+  solution(l, index+1)
+
+solution(r, 0)
