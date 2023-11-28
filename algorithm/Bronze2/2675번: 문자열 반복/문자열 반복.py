@@ -9,16 +9,15 @@
 #    Solved: 2023/08/20 11:52:32 by shaawwert6044 ###          ###   ##.kr     #
 #                                                                              #
 #  **************************************************************************  #
-#@ 첫번째 입력 : 테스트 개수 (for, while문)
-#@ 두번째 입력 : R' 'for
-
-import sys
-input = sys.stdin.readline
-
 n = int(input())
 
+def sol():
+    r, s = map(str, input().split(" "))
+    answer = ""
+    l = list(s)
+    for el in l:
+        answer += el*int(r)
+    print(answer)
+
 for _ in range(n):
-    R, input_str = map(str, input().split())
-    for i in range(len(input_str)):
-        print(input_str[i]*int(R), end="")
-    print()
+    sol()
