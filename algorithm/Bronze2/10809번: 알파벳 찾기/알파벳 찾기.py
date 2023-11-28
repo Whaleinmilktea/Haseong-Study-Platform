@@ -9,14 +9,21 @@
 #    Solved: 2023/08/20 09:36:12 by shaawwert6044 ###          ###   ##.kr     #
 #                                                                              #
 #  **************************************************************************  #
-import sys
-input = sys.stdin.readline
+# 의사코드
+# 빈 딕셔너리에 s리스트에 속한 요소를 el:index 형식으로 추가
+s = list(input())
+d = {}
+als = list("abcdefghijklmnopqrstuvwxyz")
+r = []
 
-input_str = list(input().strip())
-alpabet = "abcdefghijklmnopqrstuvwxyz"
+for al in als:
+  d[al] = -1
 
-for i in alpabet:
-    if i in input_str:
-        print(input_str.index(i), end=" ")
-    else:
-        print(-1, end=" ")
+for el in s:
+  if el in d:
+    d[el] = s.index(el)
+
+for key, val in d.items():
+  r.append(str(val))
+
+print(" ".join(r))

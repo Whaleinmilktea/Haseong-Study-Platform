@@ -15,29 +15,29 @@
 # # 배열을 순회하며 각 인덱스가 지시하는 요소에서 "O"의 갯수를 카운트한다.
 # # 해당 갯수까지의 합을 구하는 for문을 작성한다.
 
-# def get_score():
-#   s = list(map(str, input().split("X")))
-#   r = []
-#   score = 0
+def get_score():
+  s = list(map(str, input().split("X")))
+  r = []
+  score = 0
 
-#   for i in s:
-#     if i:
-#       r.append(i)
+  for i in s:
+    if i:
+      r.append(i)
 
-#   for i in r:
-#     count = i.count("O")
-#     for i in range(1, count+1):
-#       score += i
+  for i in r:
+    count = i.count("O")
+    for i in range(1, count+1):
+      score += i
 
-#   print(score)
-
-# n = int(input())
-
-# for _ in range(n):
-#   get_score()
-
-ox = input().split('X')
-score = 0
-for o in ox:
-  score += (len(o) * (len(o) + 1)) // 2 # 가우시안 합의 공식
   print(score)
+
+n = int(input())
+
+for _ in range(n):
+  get_score()
+
+# ox = input().split('X')
+# score = 0
+# for o in ox:
+#   score += (len(o) * (len(o) + 1)) // 2 # 가우시안 합의 공식
+#   print(score)
