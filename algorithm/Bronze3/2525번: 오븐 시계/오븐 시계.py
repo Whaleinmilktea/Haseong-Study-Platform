@@ -9,24 +9,16 @@
 #    Solved: 2023/08/15 17:11:35 by shaawwert6044 ###          ###   ##.kr     #
 #                                                                              #
 #  **************************************************************************  #
-import sys
-input = sys.stdin.readline
+A, B = map(int, input().split())
+C = int(input())
 
-hh, mm = map(int, input().split())
-t = int(input())
+A += C // 60
+B += C % 60
 
-H = t//60
-M = t - H*60
+if B >= 60 :
+    A += 1
+    B -= 60
+if A >= 24:
+    A -= 24
 
-if mm+M >= 60:
-    mm = mm+M - 60
-    H += 1
-else:
-    mm = mm+M
-
-if hh+H >= 24:
-    hh = hh+H-24
-else:
-    hh = hh+H
-
-print(f"{hh} {mm}")
+print(A,B)
