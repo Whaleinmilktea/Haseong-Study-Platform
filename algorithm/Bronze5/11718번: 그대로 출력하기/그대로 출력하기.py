@@ -1,23 +1,16 @@
 #  **************************************************************************  #
 #                                                                              #
 #                                                       :::    :::    :::      #
-#    Problem Number: 2480                              :+:    :+:      :+:     #
+#    Problem Number: 11718                             :+:    :+:      :+:     #
 #                                                     +:+    +:+        +:+    #
 #    By: shaawwert6044 <boj.kr/u/shaawwert6044>      +#+    +#+          +#+   #
 #                                                   +#+      +#+        +#+    #
-#    https://boj.kr/2480                           #+#        #+#      #+#     #
-#    Solved: 2023/08/11 10:19:05 by shaawwert6044 ###          ###   ##.kr     #
+#    https://boj.kr/11718                          #+#        #+#      #+#     #
+#    Solved: 2023/12/03 23:29:51 by shaawwert6044 ###          ###   ##.kr     #
 #                                                                              #
 #  **************************************************************************  #
-a, b, c = map(int, input().split())
-
-if a == b == c:
-    print(10**4 + 10**3*a)
-elif a == b:
-    print(10**3+10**2*a)
-elif b == c:
-    print(10**3+10**2*b)
-elif a == c:
-    print(10**3+10**2*c)
-else:
-    print(10**2*max(a, b, c))
+while True:
+  try :
+    print(input())
+  except EOFError:
+    break
