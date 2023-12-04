@@ -26,6 +26,17 @@
 #                         n이 r의 범위에 들어올 경우?
 #                             반복문을 stop하고, break한다.
 
+# ! recursion 에러 발생
+# def solution (n, r=1, s=1):
+#     if n <= r:
+#         return s
+#     else:
+#         return solution(n, r+6*s, s+1)
+
+# n = int(input())
+# result = solution(n)
+# print(result)
+
 n = int(input())
 
 r = 1
@@ -36,3 +47,4 @@ while n > r: # while문의 조건은 종료조건이 아닌 실행조건!
     s += 1
 
 print(s)
+
