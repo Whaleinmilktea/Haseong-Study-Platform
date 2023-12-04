@@ -9,20 +9,16 @@
 #    Solved: 2023/08/23 10:20:52 by shaawwert6044 ###          ###   ##.kr     #
 #                                                                              #
 #  **************************************************************************  #
-import sys
-input = sys.stdin.readline
-
 n, m = map(int, input().split())
-n_list = list(map(int, input().split()))
+l = list(map(int, input().split()))
+r = []
 
-result = 0
-
-for i in range(0, len(n_list)):
-  for j in range(i+1, len(n_list)):
-    for k in range(j+1, len(n_list)):
-      if n_list[i] + n_list[j] + n_list[k] > m:
+for i in l:
+  for j in l:
+    for k in l:
+      if i+j+k > m:
         continue
       else:
-        result = max(result, n_list[i] + n_list[j] + n_list[k])
+        r.append(i+j+k)
 
-print(result)
+print(max(r))

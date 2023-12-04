@@ -11,8 +11,9 @@
 #  **************************************************************************  #
 n = int(input())
 
-fibo_list = [0, 1]
-for i in range(2, n+1):
-    fibo_list.append(fibo_list[i-1] + fibo_list[i-2])
+def sol(i):
+    if i <= 1:
+        return i
+    return sol(i-1) + sol(i-2)
 
-print(fibo_list[n])
+print(sol(n))
