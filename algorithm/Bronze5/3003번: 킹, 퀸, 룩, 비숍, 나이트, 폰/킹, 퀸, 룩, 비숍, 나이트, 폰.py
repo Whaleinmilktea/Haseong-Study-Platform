@@ -1,29 +1,19 @@
 #  **************************************************************************  #
 #                                                                              #
 #                                                       :::    :::    :::      #
-#    Problem Number: 10250                             :+:    :+:      :+:     #
+#    Problem Number: 3003                              :+:    :+:      :+:     #
 #                                                     +:+    +:+        +:+    #
 #    By: shaawwert6044 <boj.kr/u/shaawwert6044>      +#+    +#+          +#+   #
 #                                                   +#+      +#+        +#+    #
-#    https://boj.kr/10250                          #+#        #+#      #+#     #
-#    Solved: 2023/08/16 08:12:26 by shaawwert6044 ###          ###   ##.kr     #
+#    https://boj.kr/3003                           #+#        #+#      #+#     #
+#    Solved: 2023/12/04 19:47:13 by shaawwert6044 ###          ###   ##.kr     #
 #                                                                              #
 #  **************************************************************************  #
-t = int(input())
-for _ in range(t):
-  h, w, n = map(int, input().split())
-  y = 1
-  x = 1
-  g = 1
+s = [1, 1, 2, 2, 2, 8]
+h = list(map(int, input().split()))
+r = []
 
-  while g < n:
-    g += 1
-    y += 1
-    if y > h:
-      y = 1
-      x += 1
+for i in range(6):
+  r.append(str(s[i]-h[i]))
 
-  if x < 10:
-    print(f"{y}0{x}")
-  else:
-    print(f"{y}{x}")
+print(" ".join(r))
