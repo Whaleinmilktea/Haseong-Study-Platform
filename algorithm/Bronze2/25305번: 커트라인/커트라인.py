@@ -13,4 +13,4 @@ n, k = map(int, input().split(" "))
 l = list(map(int, input().split(" ")))
 
 result = sorted(l, reverse=False)
-print(result[k+1])
+print(result[-k])
