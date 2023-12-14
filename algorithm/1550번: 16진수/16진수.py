@@ -30,3 +30,5 @@ for i in range(len(n)-1, -1, -1):
   cnt += 1
 
 print(result)
+
+#! print(int(input(), 16)) 문자열 포맷팅으로 5초컷 가능,,,
