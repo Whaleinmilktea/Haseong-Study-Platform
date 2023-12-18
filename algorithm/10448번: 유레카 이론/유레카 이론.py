@@ -15,6 +15,7 @@
 # 완탐으로 푼다면? => 45**3 => 91125 => 완탐 풀이 가능!
 
 l = [1]
+r = [0]*1001
 t = 1
 count = 1
 
@@ -25,14 +26,14 @@ while True:
     break
   l.append(t)
 
-case = int(input())
+# 핵심 아이디어 : 그때그때 모든 경우의 수를 만들지 않고, 가능한 경우의 수를 자료구조로 만들어 비교연산만 가능하도록!
+for i in l:
+  for j in l:
+    for k in l:
+      case = i+j+k
+      if case <= 1000:
+        r[case] = 1
 
-for i in range(case):
-  n = int(input())
-  result = 0
-  for i in l:
-    for j in l:
-      for k in l:
-        if i + j + k == n:
-          result = 1
-  print(result)
+test = int(input())
+for _ in range(test):
+  print(r[int(input())])
