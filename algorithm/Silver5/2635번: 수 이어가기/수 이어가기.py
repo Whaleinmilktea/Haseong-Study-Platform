@@ -29,8 +29,6 @@ scen = []
 for i in range(1, n+1):
   scen.append(continue_num(n, i))
 
-print(scen)
-
 max_scen = scen[0]
 
 for i in range(1, len(scen)):
