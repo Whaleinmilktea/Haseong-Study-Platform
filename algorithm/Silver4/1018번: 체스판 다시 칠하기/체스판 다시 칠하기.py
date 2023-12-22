@@ -23,14 +23,14 @@ for a in range(n-7):
         for i in range(a, a+8):
             for j in range(b, b+8):
                 if (i+j) % 2 == 0:
-                    if board[i][j] != 'W':
+                    if board[i][j] != 'W': # 흰색이 아닐 경우
                         repaint1 += 1
-                    if board[i][j] != 'B':
+                    if board[i][j] != 'B': # 검은색이 아닐 경우
                         repaint2 += 1
                 else:
-                    if board[i][j] != 'B':
+                    if board[i][j] != 'B': # 검은색이 아닐 경우
                         repaint1 += 1
-                    if board[i][j] != 'W':
+                    if board[i][j] != 'W': # 흰색이 아닐 경우
                         repaint2 += 1
         cnt.append(min(repaint1, repaint2))
 
