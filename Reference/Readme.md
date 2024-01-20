@@ -5,22 +5,26 @@
 [개인블로그](#개인블로그)
 [Github](#Github)
 [Youtube](#Youtube)
+[매거진](#매거진)
 [로드맵](#Roadmap)
 
 ### 공식문서
 - [MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript)
 
 ### 기업블로그
-
+- [Naver-fe-news](https://github.com/naver/fe-news)
 
 ### 개인블로그
 
 
 ### Github
-
+- [goQuality-dev-contents](https://github.com/Integerous/goQuality-dev-contents?tab=readme-ov-file)
 
 ### API
 
+
+### 매거진
+- [요즘IT](https://yozm.wishket.com/)
 
 ### Roadmap
 - [roadmap.sh - fe](https://roadmap.sh/frontend)
