@@ -26,6 +26,9 @@
 ### 매거진
 - [요즘IT](https://yozm.wishket.com/)
 
+### 채용플랫폼
+- [위시캣](https://yozm.wishket.com/)
+
 ### Roadmap
 - [roadmap.sh - fe](https://roadmap.sh/frontend)
 - [eodovo roadmap - fe](https://github.com/self-taught-fe-dev/fe-roadmap/blob/main/README.md?plain=1)
