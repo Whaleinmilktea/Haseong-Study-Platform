@@ -24,6 +24,7 @@
 3) [브라우저 주소창에 google을 입력하면 발생하는 일을 설명해주세요.](./Browser/readme.md/#브라우저-주소창에-googlecom을-입력하면-일어나는-일)
 4) [DNS에 대해 설명해주세요.](./Browser/readme.md/#dns에-대해-설명해주세요)
 5) [페이지 로드 시간을 줄이는 방법들에 대해서 설명해주세요.](./Browser/readme.md/#브라우저-렌더링-최적화)
+6) [리플로우와 리페인트](./Browser/readme.md/#리플로우reflow와-리페인트repaint)
 
 ## HTML&CSS
 1) [CSS Postion에 대해 설명해보세요. => relative / fix / absolute](#css-postion에-대해-설명해보세요--relative--fix--absolute)
@@ -88,11 +89,12 @@
 17) Props drilling의 개념과 Props drilling을 피하는 방법에 대해 설명해주세요.
 18) 전역 상태 관리 방법에 대해 설명해주세요.
 
-## 통신
+## 네트워크
 1) RESTful API에 대해 설명해주세요.
 2) 그렇다면 HTTP 메소드에 대한 설명도 해주실 수 있나요?
 3) HTTP와 HTTPS의 차이
 4) CORS에러를 해결하는 방법
+5) [HTTP1.1 vs HTTP 2 vs HTTP 3](./Network/readme.md)
 
 ## 보안
 1) CSRF나 XSS 공격을 막는 방법은?
