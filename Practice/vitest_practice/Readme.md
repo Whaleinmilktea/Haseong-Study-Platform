@@ -42,8 +42,22 @@ test("App contains correct heading", () => {
   - aria 속성 : 보조 기술에게 추가 정보를 제공한다. 예를 들어, aria-label, aria-describedby, aria-hidden 등이 있다.
 - 참조 : [MDN WAI-ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles#aria_role_types)
 
-### logRoles
+### Jest-DOM Matcher
 ---
+- RTL(React-testing-library)은 가상의 DOM을 제공한다. (겍체 형태로)
+- Jest & Vitest는 테스팅 코드를 제공한다.
+- 이 두 가지의 tool을 연결할 때, jest-dom의 macher를 활용하면 편리하다.
+
+```ts
+// getByTestId : RTL
+const button = getByTestId('ok-button')
+// expect : vitest의 assertion
+// toHaveAttribute : jest-dom의 macher
+expect(button).toHaveAttribute('disabled')
+```
+
+### logRoles
+***
 - 컴포넌트 렌더링 시, 예상치 못한 오류로 인해 실패할 경우 유용
 - console.log()와 같이 직관적이고 단순한 디버깅이 가능!
 - 참조 : [docs/dom-testing-library/api-accessibility/#logroless](https://testing-library.com/docs/dom-testing-library/api-debugging/)
@@ -58,5 +72,24 @@ nav.innerHTML = `
 </ul>`
 
 logRoles(nav)
+```
+
+### UserFlow에 따른 test코드 작성 흐름
+```ts
+  const buttonElement = screen.getByRole("button", {
+    name: /blue/i,
+  });
+
+클래스가 빨간색이 되기를 기대
+// expect(buttonElement).toHaveClass("red");
+
+버튼을 클릭
+// fireEvent.click(buttonElement);
+
+클래스가 파란색이 되기를 기대
+// expect(buttonElement).toHaveClass("blue");
+
+버튼 텍스트가 대소문자 구분 없이 "red"와 일치하기를 기대
+// expect(buttonElement).toHaveTextContent(/red/i);
 ```
 
