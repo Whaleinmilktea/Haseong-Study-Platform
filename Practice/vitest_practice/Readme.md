@@ -1,4 +1,5 @@
 ### TDD
+---
 TDD 는 RED → GREEN → REFACTOR 세가지 사이클을 반복하는 일정한 리듬 속에서 진행
 - 진행과정
 1) 아무런 동작을 하지 않는 간단한 컴포넌트 만들기 ```<App />```
@@ -13,9 +14,11 @@ Why?
 - 더 효율적이다 : 특히, unit test && 변경사항
 
 ### TDD vs BDD
+---
 
 
 ### Breaking Code - First Component Test
+---
 ```ts
 import { render, screen } from "@testing-library/react";
 import App from "./App";
@@ -32,6 +35,7 @@ test("App contains correct heading", () => {
 ```
 
 ### role 찾기
+---
 - RTL(React-testing-library)는 웹 표준의 Role을 따르고 있다.
 - WAI-ARIA(Web Accessibility Initiative - Accessible Rich Internet Applications의 약자) :
   - role 속성: 엘리먼트가 수행하는 역할을 지정한다. 예를 들어, 버튼, 링크, 대화 상자 등의 역할을 지정할 수 있다.
@@ -39,6 +43,7 @@ test("App contains correct heading", () => {
 - 참조 : [MDN WAI-ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles#aria_role_types)
 
 ### logRoles
+---
 - 컴포넌트 렌더링 시, 예상치 못한 오류로 인해 실패할 경우 유용
 - console.log()와 같이 직관적이고 단순한 디버깅이 가능!
 - 참조 : [docs/dom-testing-library/api-accessibility/#logroless](https://testing-library.com/docs/dom-testing-library/api-debugging/)
